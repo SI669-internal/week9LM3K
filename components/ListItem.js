@@ -29,7 +29,6 @@ function ListItem(props) {
       <TouchableOpacity 
         style={styles.li3}
         onPress={()=>{
-          console.log('deleting item', item);
           dispatch(deleteItemThunk(item));
         }}  
       >

@@ -1,12 +1,19 @@
-import { useState } from 'react';
 import { StyleSheet, View, FlatList } from "react-native";
 import { FAB } from "@rneui/base";
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+import { getTodosThunk } from '../features/todoSlice';
 
 import ListItem from "../components/ListItem";
 
 function HomeScreen(props) {
+
+  const dispatch = useDispatch();
   
+  useEffect(() => {
+    dispatch(getTodosThunk());
+  }, []);
+
   const listItems = useSelector((state) =>  state.todos.value);
 
   const { navigation, route } = props;
