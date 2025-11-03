@@ -3,7 +3,7 @@ import { StyleSheet, View } from "react-native";
 import { Input, Button } from '@rneui/base';
 import { useDispatch } from 'react-redux';
 
-import { addItem, updateItem } from "../features/todoSlice";
+import { addItemThunk, updateItemThunk } from "../features/todoSlice";
 
 function DetailsScreen({navigation, route}) {
 
@@ -33,9 +33,9 @@ function DetailsScreen({navigation, route}) {
           title='Save'
           onPress={()=>{
             if (item.key === -1) {
-              dispatch(addItem(inputText)); // arguments will be available in action.payload
+              dispatch(addItemThunk(inputText)); 
             } else {
-              dispatch(updateItem({item, inputText})); // arguments will be available in action.payload
+              dispatch(updateItemThunk({item, inputText})); 
             }
             navigation.goBack();
           }}

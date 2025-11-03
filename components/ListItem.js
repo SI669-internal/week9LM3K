@@ -3,9 +3,7 @@ import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { useDispatch } from 'react-redux';
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 
-import { deleteItem } from '../features/todoSlice';
-
-
+import { deleteItemThunk } from '../features/todoSlice';
 
 function ListItem(props) {
 
@@ -32,7 +30,7 @@ function ListItem(props) {
         style={styles.li3}
         onPress={()=>{
           console.log('deleting item', item);
-          dispatch(deleteItem(item));
+          dispatch(deleteItemThunk(item));
         }}  
       >
         <MaterialIcons 
