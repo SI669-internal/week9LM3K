@@ -1,19 +1,16 @@
 import { useState } from "react";
 import { StyleSheet, View } from "react-native";
 import { Input, Button } from '@rneui/base';
+import { useDispatch } from 'react-redux';
 
-function DetailsScreen(props) {
+import { addItem, updateItem } from "../features/todoSlice";
 
-  const { navigation, route } = props;
+function DetailsScreen({navigation, route}) {
+
   const { item } = route.params;
 
+  const dispatch = useDispatch();
   const [inputText, setInputText] = useState(item.text);
-
-  const addItem = (newText) => {
-  }
-
-  const updateItem = (item, newText) => {
-  }
 
   return (
     <View style={styles.container}>
@@ -36,9 +33,9 @@ function DetailsScreen(props) {
           title='Save'
           onPress={()=>{
             if (item.key === -1) {
-              addItem(inputText);
+              dispatch(addItem(inputText)); // arguments will be available in action.payload
             } else {
-              updateItem(item, inputText);
+              dispatch(updateItem({item, inputText})); // arguments will be available in action.payload
             }
             navigation.goBack();
           }}

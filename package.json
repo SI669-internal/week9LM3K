@@ -12,6 +12,7 @@
     "@expo/vector-icons": "^15.0.2",
     "@react-navigation/native": "^6.0.13",
     "@react-navigation/native-stack": "^6.9.0",
+    "@reduxjs/toolkit": "^2.9.1",
     "@rneui/base": "^4.0.0-rc.8",
     "babel-preset-expo": "^54.0.4",
     "expo": "^54.0.13",

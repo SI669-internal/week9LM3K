@@ -1,14 +1,17 @@
 
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { useDispatch } from 'react-redux';
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
+
+import { deleteItem } from '../features/todoSlice';
+
 
 
 function ListItem(props) {
 
   const { item, navigation} = props;
+  const dispatch = useDispatch();
 
-  const deleteItem = (item) => {
-  }
 
   return (
     <View style={styles.listItemContainer}>
@@ -28,7 +31,8 @@ function ListItem(props) {
       <TouchableOpacity 
         style={styles.li3}
         onPress={()=>{
-          deleteItem(item);
+          console.log('deleting item', item);
+          dispatch(deleteItem(item));
         }}  
       >
         <MaterialIcons 

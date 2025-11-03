@@ -1,16 +1,13 @@
 import { useState } from 'react';
 import { StyleSheet, View, FlatList } from "react-native";
 import { FAB } from "@rneui/base";
+import { useSelector } from 'react-redux';
+
 import ListItem from "../components/ListItem";
 
 function HomeScreen(props) {
   
-  const initListItems = [
-    { text: 'Get costume', key: Date.now() },
-    { text: 'Get candy', key: Date.now() + 1}
-  ];
-
-  const [listItems, setListItems] = useState(initListItems);
+  const listItems = useSelector((state) =>  state.todos.value);
 
   const { navigation, route } = props;
 
